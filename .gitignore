@@ -1,0 +1,23 @@
+# Proejct
+dist
+coverage
+
+# Editors
+.vscode
+.idea
+.classpath
+
+# Vagrant
+.vagrant
+
+# Dependencies
+node_modules
+
+# Logs
+*.log
+
+# Caches
+.cache
+
+# OS
+.DS_Store

@@ -1,0 +1,20 @@
+{
+  "name": "convert-gif-to-mp4",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "zip": "node scripts/zip",
+    "create": "npm run zip && node scripts/create",
+    "update": "npm run zip && node scripts/update"
+  },
+  "keywords": [],
+  "author": "metocherry@gmail.com",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
+    "fluent-ffmpeg": "^2.1.2",
+    "sharp": "^0.23.1"
+  }
+}

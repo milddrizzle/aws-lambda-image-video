@@ -1,0 +1,22 @@
+{
+  "name": "video-thumbnail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "zip": "node scripts/zip",
+    "create": "npm run zip && node scripts/create",
+    "update": "npm run zip && node scripts/update"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.0.20",
+    "@ffprobe-installer/ffprobe": "^1.0.12",
+    "fluent-ffmpeg": "^2.1.2"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.0"
+  }
+}

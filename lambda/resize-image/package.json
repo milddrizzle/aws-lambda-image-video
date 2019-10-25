@@ -1,0 +1,21 @@
+{
+  "name": "app",
+  "version": "0.0.1",
+  "description": "To deploy lambda",
+  "main": "lambda/index.js",
+  "scripts": {
+    "zip": "node scripts/zip",
+    "create": "npm run zip && node scripts/create",
+    "update": "npm run zip && node scripts/update",
+    "test": "aws lambda invoke --function-name resizeImage --invocation-type Event --payload file://test/inputfile.txt test/outputfile.txt --log-type Tail"
+  },
+  "author": "metocherry@gmail.com",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "sharp": "^0.23.1"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.0"
+  }
+}
