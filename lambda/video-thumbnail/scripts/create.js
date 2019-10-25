@@ -5,7 +5,8 @@ const metadata = {
   "zip-file": "fileb://dist/function.zip",
   "runtime": "nodejs10.x",
   "handler": "index.handler",
-  "role": "arn:aws:iam::484931367994:role/S3-Lambda-Role"
+  "role": "arn:aws:iam::484931367994:role/S3-Lambda-Role",
+  "timeout": 90
 };
 
 const options = Object.entries(metadata).reduce(

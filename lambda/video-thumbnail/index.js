@@ -26,14 +26,13 @@ module.exports.handler = async (event, context, done) => {
   try {
     const url = S3.getSignedUrl("getObject", { Bucket: BUCKET_ORIGIN, Key: key, Expires: 60 });
 
-    const file = toJSONFile(filename);
-    const filenames = timestamps.map((_, index) => getTempThumbnailFilename({ index: index + 1, filename: file.name, ext: "png" }));
+    const { name, ext } = toJSONFile(filename);
+    const filenames = timestamps.map((_, index) => getTempThumbnailFile({ index: index + 1, filename: name, ext: "png" }));
 
     fs.mkdirSync(TEMP_DIR, { recursive: true });
 
-    await createThumbnail({ url, filename: file.name, timestamps, dest: TEMP_DIR });
-    // TODO: S3 경로 수정 필요
-    await Promise.all(filenames.map(name => saveToS3({ bucket: BUCKET_THUMBNAIL, from: name, to: `dynamic/${name}` })));
+    await createThumbnail({ url, filename: name, timestamps, dest: TEMP_DIR });
+    await Promise.all(filenames.map(file => saveToS3({ bucket: BUCKET_THUMBNAIL, from: file.path, to: `dynamic/${file.name}` })));
 
     done(null, { success: true });
   } catch (error) {
@@ -53,8 +52,13 @@ function createThumbnail({ url, filename, ext = ".png", timestamps, dest = TEMP_
   });
 }
 
-function getTempThumbnailFilename({ index, filename, ext }) {
-  return `${TEMP_DIR}/${filename}_${index}.${ext}`;
+function getTempThumbnailFile({ index, filename, ext }) {
+  const name = `${filename}_${index}.${ext}`;
+
+  return {
+    path: `${TEMP_DIR}/${name}`,
+    name
+  };
 }
 
 function saveToS3 ({ bucket, from, to }) {
