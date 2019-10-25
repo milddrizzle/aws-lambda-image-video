@@ -1,6 +1,6 @@
 # AWS Lambda Images and Videes
 
-Amazon S3 와 Lamda 를 이용하여 웹 최적화를 위한 이미지 썸네일과 비디어 썸네일을 생성한다.
+Amazon S3 와 Lambda 를 이용하여 웹 최적화를 위한 이미지 썸네일과 비디어 썸네일을 생성한다.
 
 - `image` 를 자주 쓰는 사이즈를 미리 생성한다. -> 추후 On-demand 방식으로 변경하고, Cloudwatch 를 사용할 예정이다.
 - `gif` 는 `webm` 과 `mp4` 로 변환한다. `gif` 는 욜량이 크기 때문에 랜더링시 좋은 사용자 경험을 주기 힘들다.
