@@ -1,4 +1,4 @@
-# AWS Lambda Images and Videes
+# AWS Lambda Images and Videos
 
 Amazon S3 와 Lambda 를 이용하여 웹 최적화를 위한 이미지 썸네일과 비디어 썸네일을 생성한다.
 
