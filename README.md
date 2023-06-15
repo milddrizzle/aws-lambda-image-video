@@ -1,4 +1,4 @@
-# AWS Lambda Images and Videes
+# AWS Lambda Images and Videes 
 
 Use Amazon S3 and Lambda to create image thumbnails and video thumbnails for web optimization.
 
